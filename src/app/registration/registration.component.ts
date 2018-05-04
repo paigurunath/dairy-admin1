@@ -25,7 +25,7 @@ export class RegistrationComponent implements OnInit {
   // It maintains registration form display status. By default it will be false.
   showNew: Boolean = false;
   // It will be either 'Save' or 'Update' based on operation.
-  submitType: string = 'Save';
+  submitType: String = 'Save';
   // It maintains table row index based on selection.
   selectedRow: number;
   // It maintains Array of countries.

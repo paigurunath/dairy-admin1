@@ -9,6 +9,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FormsModule } from '@angular/forms';
+import { ProductComponent } from './product/product.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { ProductService } from './services/product.service';
 
 
 @NgModule({
@@ -16,15 +20,17 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NgbModule.forRoot(),
     FormsModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

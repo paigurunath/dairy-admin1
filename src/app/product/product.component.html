@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="reglist">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>id</th>
+          <th>product</th>
+          <th>name</th>
+          <th>type</th>
+          <th>brand</th>
+          <th>category</th>
+          <th>quantity</th>
+          <th>mrp</th>
+          <th>selling_price</th>
+          <th>vendor_id</th>
+          <th>feature</th>
+          <th>description</th>
+          <th>web_address</th>
+          <th>container</th>
+          <th>image</th>
+          <th>status</th>
+          <th>updated_by</th>
+          <th>subscriptions_allowed</th>
+          <th>createdAt</th>
+          <th>updatedAt</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productlist; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ product.id }}</td>
+          <td>{{ product.product }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.type}}</td>
+          <td>{{ product.brand }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.mrp }}</td>
+          <td>{{ product.selling_price }}</td>
+          <td>{{ product.vendor_id }}</td>
+          <td>{{ product.feature }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.web_address }}</td>
+          <td>{{ product.container }}</td>
+          <td>{{ product.image }}</td>
+          <td>{{ product.status }}</td>
+          <td>{{ product.updated_by }}</td>
+          <td>{{ product.subscriptions_allowed }}</td>
+          <td>{{ product.createdAt }}</td>
+          <td>{{ product.updatedAt }}</td>
+          <td>
+            <button type="button" class="btn btn-info" (click)="onEdit(product, i)">Edit</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="onDelete(i)" >Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-left">
+      <button type="submit" class="btn btn-primary" (click)="onNew()">New</button>
+    </div>
+  </div>
+  <br>
+  <div class="regentry" *ngIf="showNew">
+    <form (ngSubmit)="onSave()">
+      <div class="form-group row">
+        <label for="firstname-input" class="col-2 col-form-label">First Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="productModel.id" name="id">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lastname-input" class="col-2 col-form-label">Last Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="productModel.name" name="name">
+        </div>
+      </div>
+      <!-- <div class="form-group row">
+        <label for="dob-input" class="col-2 col-form-label">DOB</label>
+        <div class="col-3 input-group">
+          <input type="text" class="form-control" placeholder="yyyy-mm-dd" name="dob" [(ngModel)]="regModel.dob" ngbDatepicker #dob="ngbDatepicker">
+          <button class="input-group-addon" (click)="dob.toggle()" type="button">
+            <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+          </button>
+        </div>
+      </div> -->
+      <div class="form-group row">
+        <label for="example-email-input" class="col-2 col-form-label">Email</label>
+        <div class="col-10">
+          <input class="form-control" type="email" [(ngModel)]="productModel.type" name="type">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Password</label>
+        <div class="col-10">
+          <input class="form-control" type="password" [(ngModel)]="productModel.brand" name="brand">
+        </div>
+      </div>
+      <!-- <div class="form-group row">
+        <label for="city-input" class="col-2 col-form-label">Country</label>
+        <div class="col-10 dropdown" ngbDropdown myDrop="ngbDropdown">
+          <button type="button" class="btn btn-outline-primary" id="dropdownManual" name="country" ngbDropdownToggle>{{regModel.country}}</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownManual">
+            <button type="button" class="dropdown-item" *ngFor="let country of countries" (click)="onChangeCountry(country)">{{country}}</button>
+          </div>
+        </div>
+      </div> -->
+      <button type="submit" class="btn btn-success">{{submitType}}</button>
+      <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </form>
+  </div>
+</div>
