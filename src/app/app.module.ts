@@ -13,6 +13,9 @@ import { ProductComponent } from './product/product.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ProductService } from './services/product.service';
+import { ProductCategoryService } from './services/product-category.service';
+
+import { ProductcategoryComponent } from './productcategory/productcategory.component';
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { ProductService } from './services/product.service';
     NavbarComponent,
     HomeComponent,
     RegistrationComponent,
-    ProductComponent
+    ProductComponent,
+    ProductcategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import { ProductService } from './services/product.service';
     NgbModule.forRoot(),
     FormsModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, ProductCategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
