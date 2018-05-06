@@ -8,9 +8,9 @@
           <th>Category Name</th>
           <th>Description</th>
           <th>Picture</th>
+          <th>Status</th>
           <th>Sub Type1</th>
           <th>Sub Type2</th>
-          <th>Status</th>
           <th>createdAt</th>
           <th>updatedAt</th>
           <th>Update</th>
@@ -30,15 +30,12 @@
           <td>{{ productCategory.createdAt }}</td>
           <td>{{ productCategory.updatedAt }}</td>
           <td>
-            <button type="button" class="btn btn-info" >Edit</button>
-            <!-- (click)="onEdit(product, i)" -->
+            <button type="button" class="btn btn-info" (click)="onEdit(productCategory, i)" >Edit</button>
           </td>
           <td>
-            <button type="button" class="btn btn-danger"  >Delete</button>
-            <!-- (click)="onDelete(i)" -->
+            <button type="button" class="btn btn-danger"  (click)="onDelete(productCategory, i)" >Delete</button>
           </td>
         </tr>
-      
       </tbody>
     </table>
     <div class="text-left">
@@ -49,6 +46,13 @@
   <br>
   <div class="regentry" *ngIf="showNew">
     <form (ngSubmit)="onSave()">
+      <!-- <div class="form-group row">
+        <label for="firstname-input" class="col-2 col-form-label" >Product Id</label>
+        <div class="col-10">
+          <input class="form-control" type="hidden"  [(ngModel)]="productCategoryModel.id"  name="id">
+        </div>
+      </div> -->
+      <input class="form-control" type="hidden"  [(ngModel)]="productCategoryModel.id"  name="id">  
       <div class="form-group row">
         <label for="firstname-input" class="col-2 col-form-label" >Category Name</label>
         <div class="col-10">

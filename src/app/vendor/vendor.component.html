@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="reglist">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Vendor Id</th>
+          <th>Vendor Name</th>
+          <th>Address</th>
+          <th>Agreement No</th>
+          <th>Contact Person</th>
+          <th>Contact Person Cell</th>
+          <th>Email</th>
+          <th>Supplier Person</th>
+          <th>Supplier Person Cell</th>
+          <th>Status</th>
+          <th>CreatedAt</th>
+          <th>UpdatedAt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vendor of vendorlist; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ vendor.vender_id }}</td>
+          <td>{{ vendor.vender_name }}</td>
+          <td>{{ vendor.address }}</td>
+          <td>{{ vendor.aggreement_no}}</td>
+          <td>{{ vendor.contact_person }}</td>
+          <td>{{ vendor.contact_person_cell }}</td>
+          <td>{{ vendor.email }}</td>
+          <td>{{ vendor.supplier_person }}</td>
+          <td>{{ vendor.supplier_person_cell }}</td>
+          <td>{{ vendor.status }}</td>
+          <td>{{ vendor.createdAt }}</td>
+          <td>{{ vendor.updatedAt }}</td>
+          <td>
+            <button type="button" class="btn btn-info" (click)="onEdit(vendor, i)" >Edit</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger"  (click)="onDelete(vendor, i)" >Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-left">
+      <button type="submit" class="btn btn-primary" (click)="onNew()" >New</button>
+    </div>
+  </div>
+  <br>
+  <div class="regentry" *ngIf="showNew">
+    <form (ngSubmit)="onSave()">
+      <input class="form-control" type="hidden"  [(ngModel)]="vendorModel.vender_id"  name="vender_id">  
+      <div class="form-group row">
+        <label for="firstname-input" class="col-2 col-form-label" >Vendor Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  [(ngModel)]="vendorModel.vender_name"  name="vender_name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lastname-input" class="col-2 col-form-label">Address</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="vendorModel.address"  name="address">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-email-input" class="col-2 col-form-label">Agreement No</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="vendorModel.aggreement_no" name="aggreement_no">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Contact Person</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="vendorModel.contact_person"  name="contact_person">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Contact Person col-form-label</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="vendorModel.contact_person_cell"  name="contact_person_cell">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Email</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="vendorModel.email"  name="email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Supplier Person</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="vendorModel.supplier_person"  name="supplier_person">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Supplier Person Cell</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="vendorModel.supplier_person_cell"  name="supplier_person_cell">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">{{submitType}}</button>
+      <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </form>
+  </div>
+</div>

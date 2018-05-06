@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductCategory } from '../model/ProductCategory';
-import { ProductCategoryService } from '../services/product-category.service';
+import { Vendor } from '../model/Vendor';
+import { VendorService } from '../services/vendor.service';
 
 @Component({
-  selector: 'app-productcategory',
-  templateUrl: './productcategory.component.html',
-  styleUrls: ['./productcategory.component.css']
+  selector: 'app-vendor',
+  templateUrl: './vendor.component.html',
+  styleUrls: ['./vendor.component.css']
 })
-export class ProductcategoryComponent implements OnInit {
+export class VendorComponent implements OnInit {
 
-  productCategorylist: any = [];
+  vendorlist: any = [];
   // It maintains registration Model
-  productCategoryModel: ProductCategory;
+  vendorModel: Vendor;
   // It will be either 'Save' or 'Update' based on operation.
   submitType: String = 'Save';
   // It maintains registration form display status. By default it will be false.
@@ -19,18 +19,19 @@ export class ProductcategoryComponent implements OnInit {
   // It maintains table row index based on selection.
   selectedRow: number;
 
-  constructor(private productCategoryService: ProductCategoryService) { }
+  constructor(private vendorService: VendorService) { }
 
   ngOnInit() {
-    this.productCategoryService.getProductCategories().subscribe(
+    this.vendorService.getAllVendors().subscribe(
       data => {
-        this.productCategorylist  = data; }
-     );
+        this.vendorlist = data;
+      }
+    );
   }
 
   onNew() {
     // Initiate new registration.
-    this.productCategoryModel = new ProductCategory();
+    this.vendorModel = new Vendor();
     // Change submitType to 'Save'.
     this.submitType = 'Save';
     // display registration entry section.
@@ -43,22 +44,22 @@ export class ProductcategoryComponent implements OnInit {
       // Push registration model object into registration list.
       // this.registrations.push();
       // console.log(this.productCategoryModel);
-      this.productCategoryService.saveProductCategory(this.productCategoryModel);
+      this.vendorService.saveVendor(this.vendorModel);
     } else {
-      this.productCategoryService.updateProductCategory(this.productCategoryModel);
+      this.vendorService.updateVendor(this.vendorModel);
     }
     // Hide registration entry section.
     this.showNew = false;
   }
 
   // This method associate to Edit Button.
-  onEdit(productCategory: ProductCategory, index: number) {
+  onEdit(vendor: Vendor, index: number) {
     // Assign selected table row index.
     this.selectedRow = index;
     // Initiate new registration.
-    this.productCategoryModel = new ProductCategory();
+    this.vendorModel = new Vendor();
     // Retrieve selected registration from list and assign to model.
-    this.productCategoryModel = Object.assign({}, this.productCategorylist[this.selectedRow]);
+    this.vendorModel = Object.assign({}, this.vendorlist[this.selectedRow]);
     // Change submitType to Update.
     this.submitType = 'Update';
     // Display registration entry section.
@@ -66,8 +67,8 @@ export class ProductcategoryComponent implements OnInit {
   }
 
   // This method associate to Delete Button.
-  onDelete(productCategory: ProductCategory, index: number) {
+  onDelete(vendor: Vendor, index: number) {
     // Delete the corresponding registration entry from the list.
-    this.productCategoryService.deleteProductCategories(productCategory);
+    this.vendorService.deleteVendor(vendor);
   }
 }

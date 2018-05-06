@@ -14,8 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ProductService } from './services/product.service';
 import { ProductCategoryService } from './services/product-category.service';
+import { VendorService } from './services/vendor.service';
 
 import { ProductcategoryComponent } from './productcategory/productcategory.component';
+import { VendorComponent } from './vendor/vendor.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { ProductcategoryComponent } from './productcategory/productcategory.comp
     HomeComponent,
     RegistrationComponent,
     ProductComponent,
-    ProductcategoryComponent
+    ProductcategoryComponent,
+    VendorComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { ProductcategoryComponent } from './productcategory/productcategory.comp
     NgbModule.forRoot(),
     FormsModule
   ],
-  providers: [ProductService, ProductCategoryService],
+  providers: [ProductService, ProductCategoryService, VendorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
