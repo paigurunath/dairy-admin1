@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="reglist">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Shopper Id</th>
+          <th>Shopper Name</th>
+          <th>Address</th>
+          <th>Aggreement No</th>
+          <th>Contact Person</th>
+          <th>Contact Person Cell</th>
+          <th>Email</th>
+          <th>Buildings Coverage</th>
+          <th>Status</th>
+          <th>CreatedAt</th>
+          <th>UpdatedAt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shopper of shopperlist; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ shopper.shopper_id }}</td>
+          <td>{{ shopper.shopper_name }}</td>
+          <td>{{ shopper.address }}</td>
+          <td>{{ shopper.aggreement_no}}</td>
+          <td>{{ shopper.contact_person }}</td>
+          <td>{{ shopper.contact_person_cell }}</td>
+          <td>{{ shopper.email }}</td>
+          <td>{{ shopper.buildings_coverage }}</td>
+          <td>{{ shopper.status }}</td>
+          <td>{{ shopper.createdAt }}</td>
+          <td>{{ shopper.updatedAt }}</td>
+          <td>
+            <button type="button" class="btn btn-info" (click)="onEdit(shopper, i)" >Edit</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger"  (click)="onDelete(shopper, i)" >Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-left">
+      <button type="submit" class="btn btn-primary" (click)="onNew()" >New</button>
+    </div>
+  </div>
+  <br>
+  <div class="regentry" *ngIf="showNew">
+    <form (ngSubmit)="onSave()">
+      <input class="form-control" type="hidden"  [(ngModel)]="shopperModel.shopper_id"  name="shopper_id">  
+      <div class="form-group row">
+        <label for="firstname-input" class="col-2 col-form-label" >Shopper Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  [(ngModel)]="shopperModel.shopper_name"  name="shopper_name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lastname-input" class="col-2 col-form-label">Address</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="shopperModel.address"  name="address">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-email-input" class="col-2 col-form-label">Aggreement No</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="shopperModel.aggreement_no" name="aggreement_no">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Contact Person</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="shopperModel.contact_person"  name="contact_person">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Contact Person Cell</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="shopperModel.contact_person_cell"  name="contact_person_cell">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Email</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="shopperModel.email"  name="email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Buildings Coverage</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="shopperModel.buildings_coverage"  name="buildings_coverage">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">{{submitType}}</button>
+      <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </form>
+  </div>
+</div>
