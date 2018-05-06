@@ -18,12 +18,14 @@ import { VendorService } from './services/vendor.service';
 import { ShopperService } from './services/shopper.service';
 import { ContactUsService } from './services/contact-us.service';
 import { SubscriptionService } from './services/subscription.service';
+import { OrderService } from './services/order.service';
 
 import { ProductcategoryComponent } from './productcategory/productcategory.component';
 import { VendorComponent } from './vendor/vendor.component';
 import { ShopperComponent } from './shopper/shopper.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { SubscriptionComponent } from './subscription/subscription.component';
     VendorComponent,
     ShopperComponent,
     ContactusComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { SubscriptionComponent } from './subscription/subscription.component';
     VendorService,
     ShopperService,
     ContactUsService,
-    SubscriptionService],
+    SubscriptionService,
+    OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,6 +8,7 @@ import { VendorComponent } from './vendor/vendor.component';
 import { ShopperComponent } from './shopper/shopper.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'subscriptions',
     component: SubscriptionComponent
+  },
+  {
+    path: 'orders',
+    component: OrderComponent
   }
 ];
 
