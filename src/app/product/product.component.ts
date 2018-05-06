@@ -10,9 +10,6 @@ import { Product } from '../model/Product';
 export class ProductComponent implements OnInit {
 
   productlist: any = [];
-
-  // It maintains list of Registrations
-  // registrations: Registration[] = [];
   // It maintains registration Model
   productModel: Product;
   // It maintains registration form display status. By default it will be false.
@@ -33,20 +30,6 @@ export class ProductComponent implements OnInit {
      );
   }
 
-  // This method associate to Edit Button.
-  onEdit(product: Product, index: number) {
-    // Assign selected table row index.
-    this.selectedRow = index;
-    // Initiate new registration.
-    this.productModel = new Product();
-    // Retrieve selected registration from list and assign to model.
-    this.productModel = Object.assign({}, this.productlist[this.selectedRow]);
-    // Change submitType to Update.
-    this.submitType = 'Update';
-    // Display registration entry section.
-    this.showNew = true;
-  }
-
    // This method associate toCancel Button.
    onCancel() {
     // Hide registration entry section.
@@ -63,10 +46,37 @@ export class ProductComponent implements OnInit {
     this.showNew = true;
   }
 
+  // This method associate to Save Button.
+  onSave() {
+    if (this.submitType === 'Save') {
+      // Push registration model object into registration list.
+      // this.registrations.push();
+      // console.log(this.productCategoryModel);
+      this.productService.saveProduct(this.productModel);
+    } else {
+      this.productService.updateProduct(this.productModel);
+    }
+    // Hide registration entry section.
+    this.showNew = false;
+  }
+
+  // This method associate to Edit Button.
+  onEdit(product: Product, index: number) {
+    // Assign selected table row index.
+    this.selectedRow = index;
+    // Initiate new registration.
+    this.productModel = new Product();
+    // Retrieve selected registration from list and assign to model.
+    this.productModel = Object.assign({}, this.productlist[this.selectedRow]);
+    // Change submitType to Update.
+    this.submitType = 'Update';
+    // Display registration entry section.
+    this.showNew = true;
+  }
+
   // This method associate to Delete Button.
-  onDelete(index: number) {
+  onDelete(product: Product, index: number) {
     // Delete the corresponding registration entry from the list.
-    this.productlist.splice(index, 1);
+    this.productService.deleteProduct(product);
   }
 }
-

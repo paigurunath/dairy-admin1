@@ -16,6 +16,8 @@ export class Product {
     image: String;
     status: String;
     updated_by: String;
+    sub_catagory_id: String;
+    tax_details: String;
     subscriptions_allowed: String;
     createdAt: String;
     updatedAt: String;
