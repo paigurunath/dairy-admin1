@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="reglist">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Id</th>
+          <th>Type</th>
+          <th>Mobile</th>
+          <th>Email</th>
+          <th>Message</th>
+          <th>createdAt</th>
+          <th>updatedAt</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contactUs of contactUslist; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ contactUs.id }}</td>
+          <td>{{ contactUs.type }}</td>
+          <td>{{ contactUs.mobile }}</td>
+          <td>{{ contactUs.email}}</td>
+          <td>{{ contactUs.message }}</td>
+          <td>{{ contactUs.createdAt }}</td>
+          <td>{{ contactUs.updatedAt }}</td>
+          <td>
+            <button type="button" class="btn btn-info" (click)="onEdit(contactUs, i)" >Edit</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger"  (click)="onDelete(contactUs, i)" >Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <div class="text-left">
+      <button type="submit" class="btn btn-primary" (click)="onNew()" >New</button>
+    </div> -->
+  </div>
+  <br>
+  <!-- <div class="regentry" *ngIf="showNew">
+    <form (ngSubmit)="onSave()">
+      <input class="form-control" type="hidden"  [(ngModel)]="productCategoryModel.id"  name="id">  
+      <div class="form-group row">
+        <label for="firstname-input" class="col-2 col-form-label" >Category Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  [(ngModel)]="productCategoryModel.catagory_name"  name="categoryName">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lastname-input" class="col-2 col-form-label">Description</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="productCategoryModel.description"  name="description">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-email-input" class="col-2 col-form-label">Picture</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="productCategoryModel.picture" name="picture">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Status</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="productCategoryModel.status"  name="status">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Sub Category Type1</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="productCategoryModel.type1"  name="type1">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Sub Category Type2</label>
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="productCategoryModel.type2"  name="type2">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">{{submitType}}</button>
+      <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </form>
+  </div> -->
+</div>

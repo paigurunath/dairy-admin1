@@ -16,10 +16,14 @@ import { ProductService } from './services/product.service';
 import { ProductCategoryService } from './services/product-category.service';
 import { VendorService } from './services/vendor.service';
 import { ShopperService } from './services/shopper.service';
+import { ContactUsService } from './services/contact-us.service';
+import { SubscriptionService } from './services/subscription.service';
 
 import { ProductcategoryComponent } from './productcategory/productcategory.component';
 import { VendorComponent } from './vendor/vendor.component';
 import { ShopperComponent } from './shopper/shopper.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
 
 
 @NgModule({
@@ -31,7 +35,9 @@ import { ShopperComponent } from './shopper/shopper.component';
     ProductComponent,
     ProductcategoryComponent,
     VendorComponent,
-    ShopperComponent
+    ShopperComponent,
+    ContactusComponent,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,13 @@ import { ShopperComponent } from './shopper/shopper.component';
     NgbModule.forRoot(),
     FormsModule
   ],
-  providers: [ProductService, ProductCategoryService, VendorService, ShopperService],
+  providers: [
+    ProductService,
+    ProductCategoryService,
+    VendorService,
+    ShopperService,
+    ContactUsService,
+    SubscriptionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

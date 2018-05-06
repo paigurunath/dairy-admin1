@@ -6,6 +6,8 @@ import { ProductComponent } from './product/product.component';
 import { ProductcategoryComponent } from './productcategory/productcategory.component';
 import { VendorComponent } from './vendor/vendor.component';
 import { ShopperComponent } from './shopper/shopper.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path: 'shopper',
     component: ShopperComponent
+  },
+  {
+    path: 'contactus',
+    component: ContactusComponent
+  },
+  {
+    path: 'subscriptions',
+    component: SubscriptionComponent
   }
 ];
 
