@@ -18,8 +18,12 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
+  // getProducts() {
+  //   return this.http.get<any>(this.productListAllService,{});
+  // }
+
   getProducts() {
-    return this.http.get<any>(this.productListAllService);
+    return this.http.get<any>(this.productListAllService,{});
   }
 
   saveProduct(product: Product) {
